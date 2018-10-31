@@ -2,7 +2,7 @@
     <id>cn.lony.copy.mybatis.statement</id>
     <name>copy-mybatis-statement</name>
     <version>1.0</version>
-    <vendor email="529918027@qq.com" url="http://www.yourcompany.com">Personal</vendor>
+    <vendor email="529918027@qq.com" url="https://github.com/yljxcn/copy-mybatis-statement">Personal</vendor>
 
     <description><![CDATA[
       When copy mybatis statement, Automatically fill statement paramters.
