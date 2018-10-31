@@ -1,14 +1,24 @@
 package cn.lony;
 
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.ide.CopyProvider;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.Editor;
 
 public class CopyMyBatisStatementConsoleMenu extends AnAction {
 
     public static final String PREPARING_PREFIX = "==>  Preparing: ";
     public static final String PARAMETERS_PREFIX = "==> Parameters: ";
+
+    @Override
+    public void update(AnActionEvent e) {
+        Presentation presentation = e.getPresentation();
+        DataContext dataContext = e.getDataContext();
+        System.out.println(dataContext);
+        CopyProvider copyProvider = PlatformDataKeys.COPY_PROVIDER.getData(dataContext);
+        boolean available = copyProvider != null && copyProvider.isCopyEnabled(dataContext) && copyProvider.isCopyVisible(dataContext);
+        presentation.setEnabled(available);
+        presentation.setVisible(available);
+    }
 
     @Override
     public void actionPerformed(AnActionEvent e) {
