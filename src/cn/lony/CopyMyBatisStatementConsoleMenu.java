@@ -2,6 +2,8 @@ package cn.lony;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.editor.Editor;
 
 public class CopyMyBatisStatementConsoleMenu extends AnAction {
 
@@ -10,8 +12,10 @@ public class CopyMyBatisStatementConsoleMenu extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        String content = ClipboardUtil.getClipboardString();
-        String[] sections = content.split("\\n");
+        Editor editor = e.getData(CommonDataKeys.EDITOR);
+        String selectedText = editor.getSelectionModel().getSelectedText();
+
+        String[] sections = selectedText.split("\\n");
 
         String statement = "";
         String[] paramters = null;
