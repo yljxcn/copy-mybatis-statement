@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>cn.lony.copy.mybatis.statement</id>
+    <name>copy-mybatis-statement</name>
+    <version>1.0</version>
+    <vendor email="529918027@qq.com" url="http://www.yourcompany.com">Personal</vendor>
+
+    <description><![CDATA[
+      When copy mybatis statement, Automatically fill statement paramters.
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Version 1.0
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="copyMyBatisStatement" class="cn.lony.CopyMyBatisStatementConsoleMenu" text="Copy MyBatis Statement" description="Fill MyBatis Statement Paramters">
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
